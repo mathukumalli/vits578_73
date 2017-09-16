@@ -67,7 +67,7 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		else
 		{
-			Student students[students.length]=new Student();
+			
 			for(int i=students.length;i>0;i--)
 				students[i]=students[i-1];
 			students[0]=student;
@@ -81,7 +81,7 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		else
 		{
-			Student students[students.length]=new Student(student);
+			students[students.length]=student;
 		}
 	}
 
@@ -92,7 +92,7 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		else
 		{
-			Student students[students.length]=new Student();
+			
 			for(int i=students.length;i>index;i--)
 				students[i]=students[i-1];
 			students[index]=student;
@@ -191,9 +191,9 @@ public class StudentGroup implements StudentArrayOperation {
 				{
 					int index=i;
 					int j=students.length-index;
-					for(int i=0;i<j;i++)
+					for(i=0;i<j;i++)
 						students[i]=students[i+index];
-					for(int i=j;i<j+index;i++)
+					for(i=j;i<j+index;i++)
 						students[i]=null;
 					return;
 				}
@@ -209,12 +209,7 @@ public class StudentGroup implements StudentArrayOperation {
 		for(int i=0;i<n;i++)
 			for(int j=i+1;j<n;j++)
 			{
-				if(students[i].id>students[j].id)
-				{
-					int temp=students[i].id;
-					students[i].id=students[j].id;
-					students[j].id=temp;
-				}
+				
 			}
 	}
 
@@ -260,12 +255,9 @@ public class StudentGroup implements StudentArrayOperation {
 		if(student==null)
 			throw new IllegalArgumentException();
 		else
-		{
 			for(int i=0;i<students.length;i++)
-			{
 				if(students[i]==student)
-					return student[i+1];
-			}
-		}
+					return students[i+1];
+		return null;
 	}
 }
